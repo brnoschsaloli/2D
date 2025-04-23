@@ -1,0 +1,60 @@
+# === Unity ===
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+*.stacktrace
+
+# Se você usa Collaborate
+.collabignore
+.collab/
+
+# Se estiver usando Unity Cloud Build
+/[Uu]serSettings/
+
+# Archivos de cache
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# Configurações de IDE (opcional)
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Arquivos de log
+*.log
+
+# Rider
+*.sln.iml
+
+# Unity Crash Reports
+sysinfo.txt
+
+# Plugins e pacotes que são gerados ou instalados localmente
+/Packages/packages-lock.json
+
+# Se estiver usando Addressables
+Assets/AddressableAssetsData/*/*.bin
+Assets/AddressableAssetsData/*/*.asset
+
+# Outros
+*.apk
+*.aab
