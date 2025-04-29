@@ -693,7 +693,7 @@ Transform:
   m_GameObject: {fileID: 948108260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.35, y: -4.51, z: 0}
+  m_LocalPosition: {x: -5.27, y: -4.46, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1007,6 +1007,7 @@ GameObject:
   - component: {fileID: 1577486296}
   - component: {fileID: 1577486295}
   - component: {fileID: 1577486294}
+  - component: {fileID: 1577486299}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1179,6 +1180,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1577486299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577486293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae73f5fd1f2c4024daaf5b48ff671d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 7
+  fastFallMultiplier: 2
 --- !u!1 &1902448870
 GameObject:
   m_ObjectHideFlags: 0
