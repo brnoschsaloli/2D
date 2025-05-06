@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 158274673}
   - component: {fileID: 158274672}
   - component: {fileID: 158274671}
+  - component: {fileID: 158274674}
   m_Layer: 5
   m_Name: ButtonPlay
   m_TagString: Untagged
@@ -201,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 158274672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 158274674}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: OnPlayButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &158274672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8545761501449185026, guid: efc5ea7d5706e4624ab70cd9e6ea072a, type: 3}
+  m_Sprite: {fileID: -8545761501449185026, guid: 5679c8a4a0347bf8a89e3bf65918485d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -240,6 +253,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158274669}
   m_CullTransparentMesh: 1
+--- !u!114 &158274674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158274669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a0725707cf212e88dc9c5bae307a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350556529
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4787230377374458631, guid: 2de9a2c6a60ee41cfb7f8ba18ab79049, type: 3}
+  m_Sprite: {fileID: 4787230377374458631, guid: ff31d9bf590b70ec6afe80e3b19417fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
