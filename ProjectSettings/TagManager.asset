@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Spike
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -41,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 2116007825
+    locked: 0
+  - name: Apetrechos
+    uniqueID: 1654221393
     locked: 0
   - name: Default
     uniqueID: 0
