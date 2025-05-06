@@ -9,8 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: f28541f3f0c03454f9b5d83499d3d9b2
   - enabled: 1
+    path: Assets/Scenes/SelectPhase.unity
+    guid: 11e345bb966891f6d8e6befb50ce3e28
+  - enabled: 0
     path: Assets/Scenes/PhaseOneScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: Assets/Scenes/PhaseTwoScene.unity
+    guid: e903a3e5154b2e9ac9b501d9c1707160
+  - enabled: 0
+    path: Assets/Scenes/PhaseThreeScene.unity
+    guid: 9bdf9b6b2b1e1d6dfb0d98ae3a709780
+  - enabled: 0
+    path: Assets/Scenes/Breno.unity
+    guid: 23a2ed59e018bb84e92b6f5b0efc5225
+  - enabled: 0
+    path: Assets/Scenes/PlayerMovement.unity
+    guid: e657ac13792979b4689b37b0054ee93b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
