@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efc5ea7d5706e4624ab70cd9e6ea072a
+guid: 4c5ae10b389acdcf6b85b950a25e5200
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8545761501449185026
-    second: botao_0
+      213: -2732557894577451470
+    second: bg_select_phase_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,29 +122,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: botao_0
+      name: bg_select_phase_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 1494
+        width: 1536
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef899ea113b576980800000000000000
-      internalID: -8545761501449185026
+      spriteID: 23e85859211041ad0800000000000000
+      internalID: -2732557894577451470
       vertices: []
       indices: 
       edges: []
@@ -173,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      botao_0: -8545761501449185026
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
