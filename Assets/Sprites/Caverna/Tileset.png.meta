@@ -161,11 +161,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
 <<<<<<< HEAD
+<<<<<<< HEAD
     nameFileIdTable:
       Tileset_0: 5441223297315994465
 =======
     nameFileIdTable: {}
 >>>>>>> 772225c (fase 1 e 2)
+=======
+    nameFileIdTable:
+      Tileset_0: 5441223297315994465
+>>>>>>> 595f449 (meta files)
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
