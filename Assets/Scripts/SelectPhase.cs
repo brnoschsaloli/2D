@@ -20,7 +20,6 @@ public class SelectPhase : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        Debug.Log("Back to Main Menu");
         SceneManager.LoadScene("Menu");
     }
 }
