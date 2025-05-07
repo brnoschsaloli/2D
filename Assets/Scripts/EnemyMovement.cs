@@ -1,60 +1,85 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
-    public float fastFallMultiplier = 2f;
-    [SerializeField]
-    private Animator animator;
 
     private Rigidbody2D rb;
+    private Transform player;
+
+    public float moveSpeed = 2f;
+    public float enemyDistance = 40f;
+
+
+    private Animator animator;
+
     private bool isGrounded;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        // if (player == null) return;
 
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-        if (moveInput < 0)
+        // Checa distância do player
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (CanSeePlayer())
         {
-            Debug.Log("animação esquerda");
-            animator.SetBool("isRunning", true);
-            animator.SetInteger("Side", 0);
+            Debug.Log("TO vendo esse malandro");
         }
-        else if (moveInput > 0)
+
+        // Só anda se estiver no chão, se "ver" o player, e se estiver longe o suficiente
+        if (isGrounded && CanSeePlayer() && distanceToPlayer > enemyDistance)
         {
-            Debug.Log("Animação direita");
+            Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            rb.linearVelocity = direction * moveSpeed;
             animator.SetBool("isRunning", true);
-            animator.SetInteger("Side", 1);
+            animator.SetBool("isAttacking", false);
+
+
         }
         else
         {
-            animator.SetBool("isRunning", false);
-        }
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+            rb.linearVelocity = Vector2.zero;
+            if (distanceToPlayer <= enemyDistance && isGrounded && CanSeePlayer())
+            {
+                animator.SetBool("isAttacking", true);
+                animator.SetBool("isRunning", false);
 
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isGrounded)
-        {
-            rb.gravityScale = 2f;
-        }
-        else
-        {
-            rb.gravityScale = 1f;
-        }
-        {
-            rb.linearVelocity += Vector2.down * fastFallMultiplier * Time.deltaTime;
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+                animator.SetBool("isAttacking", false);
+            }
         }
     }
+
+    private bool CanSeePlayer()
+    {
+        Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
+        float dist = Vector2.Distance(transform.position, player.position);
+
+        // <--- Ajuste este valor para as layers do seu projeto!
+        int layerMask = LayerMask.GetMask("Default", "Player");
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dist, layerMask);
+
+        Debug.DrawRay(transform.position, dir * dist, Color.red);
+
+        return (hit.collider != null && hit.collider.CompareTag("Player"));
+    }
+
+
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {

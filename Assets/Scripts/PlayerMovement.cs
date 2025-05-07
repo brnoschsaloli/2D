@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isGrounded)
         {
-            rb.gravityScale = 2f; 
+            rb.gravityScale = 2f;
         }
         else
         {
