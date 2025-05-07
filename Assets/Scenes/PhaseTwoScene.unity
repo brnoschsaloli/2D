@@ -4164,9 +4164,12 @@ Transform:
 --- !u!1 &1218809615
 GameObject:
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 772225c (fase 1 e 2)
 =======
 >>>>>>> 53c3491 (Revert "Audio")
+=======
+>>>>>>> b0e069e (Revert "Audio")
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5059,9 +5062,12 @@ Transform:
   m_Father: {fileID: 309126190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 772225c (fase 1 e 2)
 =======
 >>>>>>> 53c3491 (Revert "Audio")
+=======
+>>>>>>> b0e069e (Revert "Audio")
 --- !u!1 &1496717709
 GameObject:
   m_ObjectHideFlags: 0
