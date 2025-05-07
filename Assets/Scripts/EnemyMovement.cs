@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Só anda se estiver no chão, se "ver" o player, e se estiver longe o suficiente
-        if (isGrounded && CanSeePlayer() && distanceToPlayer > 2.0)
+        if (isGrounded && CanSeePlayer() && distanceToPlayer > 1.5)
         {
             Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
             rb.linearVelocity = direction * moveSpeed;
@@ -51,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("entrou aqui");
             // Debug.Log("a distancia: " + distanceToPlayer);
             rb.linearVelocity = Vector2.zero;
-            if (distanceToPlayer <= 5.0 && CanSeePlayer())
+            if (distanceToPlayer <= 1.5 && CanSeePlayer())
             {
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isAttacking", true);
