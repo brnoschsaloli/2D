@@ -74,8 +74,8 @@ public class EnemyMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dist, layerMask);
 
         Debug.DrawRay(transform.position, dir * dist, Color.red);
-
-        return (hit.collider != null && hit.collider.CompareTag("Player"));
+        return true;
+        // return (hit.collider != null && hit.collider.CompareTag("Player"));
     }
 
 
