@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool isGrounded;
     private bool isRunning;
+    private AudioSource audioSource;  // Add AudioSource reference
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();  // Pegamos o Animator do mesmo GameObject
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();  // Get the AudioSource component
     }
 
     void Update()
@@ -24,9 +26,21 @@ public class PlayerMovement : MonoBehaviour
         // Movimento horizontal
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        // Define se est� correndo (qualquer valor diferente de zero)
+        // Define se está correndo (qualquer valor diferente de zero)
+        bool wasRunning = isRunning;  // Store previous running state
         isRunning = Mathf.Abs(moveInput) > 0.1f;
-        animator.SetBool("isRunning", isRunning); // Atualiza o Animator
+        animator.SetBool("isRunning", isRunning);
+
+        // Play sound when starting to run
+        if (isRunning && !wasRunning && isGrounded)
+        {
+            audioSource.Play();
+        }
+        // Stop sound when stopping running
+        else if (!isRunning && wasRunning)
+        {
+            audioSource.Stop();
+        }
 
         // Pulo
         if (Input.GetButtonDown("Jump") && isGrounded)
