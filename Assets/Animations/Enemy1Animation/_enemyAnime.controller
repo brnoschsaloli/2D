@@ -1,6 +1,9 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
 --- !u!1101 &-9086862002086039924
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -165,9 +168,12 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &-4251565650125153544
+<<<<<<< HEAD
 =======
 --- !u!1102 &-4910496240746857447
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -332,10 +338,17 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &-2964912128880281174
 =======
 --- !u!1102 &5151019252950479613
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+--- !u!1102 &5151019252950479613
+=======
+--- !u!1102 &-2964912128880281174
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -343,6 +356,11 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  m_Name: Hurt
+=======
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_Name: Run R
   m_Speed: 1
   m_CycleOffset: 0
@@ -438,9 +456,13 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Death L
+<<<<<<< HEAD
 =======
   m_Name: Hurt
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -454,16 +476,30 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: ed8b835e70c9040fe9d559b0d13017c5, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 99a8f67dedc061b429ccd415af5f0e53, type: 2}
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+  m_Motion: {fileID: 7400000, guid: 99a8f67dedc061b429ccd415af5f0e53, type: 2}
+=======
+  m_Motion: {fileID: 7400000, guid: ed8b835e70c9040fe9d559b0d13017c5, type: 2}
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+--- !u!1102 &7054075314197724822
+AnimatorState:
+  serializedVersion: 6
+=======
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
 --- !u!1101 &77438086915365012
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -571,16 +607,29 @@ AnimatorStateMachine:
   m_DefaultState: {fileID: -5478283846964735818}
 --- !u!1101 &5840427571355122704
 AnimatorStateTransition:
+<<<<<<< HEAD
 =======
 --- !u!1102 &7054075314197724822
 AnimatorState:
   serializedVersion: 6
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  m_Name: Run
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 2984373152841882965}
+=======
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
@@ -639,6 +688,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
+<<<<<<< HEAD
 =======
   m_Name: Run
   m_Speed: 1
@@ -646,6 +696,9 @@ AnimatorState:
   m_Transitions:
   - {fileID: 2984373152841882965}
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -656,16 +709,27 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 59e541133e256e143b611cf8125484ac, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 7d49f613a164c084bb0ebbee1aee67dd, type: 2}
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+  m_Motion: {fileID: 7400000, guid: 7d49f613a164c084bb0ebbee1aee67dd, type: 2}
+=======
+  m_Motion: {fileID: 7400000, guid: 59e541133e256e143b611cf8125484ac, type: 2}
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
 --- !u!1101 &8064684662932285063
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -691,8 +755,12 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< HEAD
 =======
 >>>>>>> fada0c1 (Revert "Inimigo")
+=======
+>>>>>>> c18624f (animacao do urso + enemy + movimentação do enemy)
+>>>>>>> ebd7c5f (animacao do urso + enemy + movimentação do enemy)
 --- !u!1102 &9030111541504859635
 AnimatorState:
   serializedVersion: 6
