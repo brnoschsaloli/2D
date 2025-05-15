@@ -3,20 +3,22 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public float jumpForce = 0.2f;
-    public float fastFallMultiplier = 5f;
+    public float jumpForce = 5f;
+    public float fallMultiplier = 2f;
+    public float lowJumpMultiplier = 2f;
+    public float fastFallMultiplier = 3f;
 
     private Rigidbody2D rb;
     private Animator animator;
     private bool isGrounded;
     private bool isRunning;
-    private AudioSource audioSource;  // Add AudioSource reference
+    private AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();  // Get the AudioSource component
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -26,17 +28,16 @@ public class PlayerMovement : MonoBehaviour
         // Movimento horizontal
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        // Define se está correndo (qualquer valor diferente de zero)
-        bool wasRunning = isRunning;  // Store previous running state
+        // Animação de corrida
+        bool wasRunning = isRunning;
         isRunning = Mathf.Abs(moveInput) > 0.1f;
         animator.SetBool("isRunning", isRunning);
 
-        // Play sound when starting to run
+        // Som de corrida
         if (isRunning && !wasRunning && isGrounded)
         {
             audioSource.Play();
         }
-        // Stop sound when stopping running
         else if (!isRunning && wasRunning)
         {
             audioSource.Stop();
@@ -45,17 +46,30 @@ public class PlayerMovement : MonoBehaviour
         // Pulo
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
-        // Queda rapida
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isGrounded)
+        // Ajustes de gravidade para subida e queda
+        if (rb.linearVelocity.y < 0)
         {
-            rb.gravityScale = fastFallMultiplier;
+            // Caindo
+            rb.gravityScale = fallMultiplier;
+        }
+        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            // Subindo mas botão de pulo solto
+            rb.gravityScale = lowJumpMultiplier;
         }
         else
         {
+            // Gravidade normal
             rb.gravityScale = 1f;
+        }
+
+        // Queda rápida com tecla S ou seta para baixo
+        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isGrounded)
+        {
+            rb.gravityScale = fastFallMultiplier;
         }
     }
 

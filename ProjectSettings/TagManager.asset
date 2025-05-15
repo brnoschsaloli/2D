@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Spike
   - Water
-  - Enemy
+  - DeathZone
   layers:
   - Default
   - TransparentFX
