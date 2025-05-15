@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -6,19 +7,40 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 5f;
 
     private Rigidbody2D rb;
+    private Transform player;
+
 
     private void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player").transform;
     }
     private void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (distanceToPlayer > 20)
+        {
+            Destroy(gameObject, 0);
+        }
+
     }
-
-
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject, 0);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject, 0);
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+        }
+        else
+        {
+            Debug.Log("ta batendo em algo" + collision.gameObject);
+            Destroy(gameObject, 0);
+        }
     }
+
+
+
 }

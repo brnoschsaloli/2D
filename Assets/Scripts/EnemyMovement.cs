@@ -48,8 +48,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("entrou aqui");
-            // Debug.Log("a distancia: " + distanceToPlayer);
             rb.linearVelocity = Vector2.zero;
             if (distanceToPlayer <= 1.5 && CanSeePlayer())
             {
