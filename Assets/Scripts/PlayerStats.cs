@@ -19,7 +19,12 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Player morreu!");
             LoseCoinsOnDeath();
-            // lógica de morte
+            // Voltar para o ponto de respawn
+            PlayerRespawn respawn = GetComponent<PlayerRespawn>();
+            if (respawn != null)
+            {
+                respawn.Respawn();
+            }
         }
     }
 
@@ -35,6 +40,14 @@ public class PlayerStats : MonoBehaviour
         hudManager.UpdateCoins(GameSession.Instance.coins);
         Debug.Log("O jogador perdeu 2 moedas!");
     }
+
+    public void ResetLife()
+    {
+        GameSession.Instance.currentHearts = GameSession.Instance.maxHearts;
+        hudManager.UpdateHearts(GameSession.Instance.currentHearts);
+        Debug.Log("Vida restaurada!");
+    }
+
 
     // Debug
 }

@@ -13,5 +13,6 @@ public class PlayerRespawn : MonoBehaviour
     public void Respawn()
     {
         transform.position = respawnPoint.position;
+        playerStats.ResetLife();
     }
 }
