@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -24,10 +25,22 @@ public class Bullet : MonoBehaviour
         }
 
     }
-
-
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject, 0);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject, 0);
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+        }
+        else
+        {
+            Debug.Log("ta batendo em algo" + collision.gameObject);
+            Destroy(gameObject, 0);
+        }
     }
+
+
+
 }
