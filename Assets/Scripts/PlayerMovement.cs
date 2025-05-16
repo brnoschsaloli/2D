@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerLifeStats lifeStats;
     private bool isAttacking = false;
 
+    public int lookDirection = 1;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,10 +51,15 @@ public class PlayerMovement : MonoBehaviour
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (moveInput > 0)
+        {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            lookDirection = 1;
+        }
         else if (moveInput < 0)
+        {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-
+            lookDirection = -1;
+        }
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
         bool wasRunning = isRunning;
@@ -120,5 +127,21 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+
+
+    private void Shoot()
+    {
+        Debug.Log("Atirou   : " + lookDirection);
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        if (lookDirection != 1 && lookDirection != -1)
+        {
+            lookDirection = 1;
+        }
+        bullet.SetDirection(lookDirection);
     }
 }
