@@ -36,9 +36,6 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject, 0);
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
-        {
-        }
         else
         {
             Debug.Log("ta batendo em algo" + collision.gameObject);

@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 858601468}
   - component: {fileID: 858601469}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,6 +695,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7605837444440880604, guid: dc106d8046c1a4c35a0161a677aec65c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605837444440880604, guid: dc106d8046c1a4c35a0161a677aec65c, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -704,11 +708,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9163484777543126439, guid: dc106d8046c1a4c35a0161a677aec65c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 9163484777543126439, guid: dc106d8046c1a4c35a0161a677aec65c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.41
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 9163484777543126439, guid: dc106d8046c1a4c35a0161a677aec65c, type: 3}
       propertyPath: m_LocalPosition.z
