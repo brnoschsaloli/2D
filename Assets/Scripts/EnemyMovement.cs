@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Animator animator;
 
+    public PlayerStats playerStats;
     private bool isGrounded;
 
     private void Start()
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+        playerStats = player.gameObject.GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -35,9 +37,32 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("TO vendo esse malandro");
         }
+        // --- FLIP ---
+        float xDiff = transform.position.x - player.position.x;
+        if (Mathf.Abs(xDiff) > 0.01f)
+        {
+            float direction = Mathf.Sign(xDiff);
+            transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
+        // --- CHECA COLISÃO NA FRENTE ---
+        bool isBlocked = false;
+        float lookDir = Mathf.Sign(xDiff);
+        Vector2 origin = (Vector2)transform.position + Vector2.up * 0.1f; // um pouco acima do centro
+        float rayLength = 1.0f;
+
+        // Use camada "Ground" e "Enemy" e "Default" no LayerMask
+        int wallMask = LayerMask.GetMask("Default", "Ground", "Enemy");
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.left * lookDir, rayLength, wallMask);
+        Debug.DrawRay(origin, Vector2.right * lookDir * (-1) * rayLength, Color.blue);
+        if (hit.collider != null)
+        {
+            isBlocked = true;
+        }
+
 
         // Só anda se estiver no chão, se "ver" o player, e se estiver longe o suficiente
-        if (isGrounded && CanSeePlayer() && distanceToPlayer > 1.5)
+        if (isGrounded && !isBlocked && CanSeePlayer() && distanceToPlayer > 1.5)
         {
             Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
             rb.linearVelocity = direction * moveSpeed;
@@ -53,6 +78,11 @@ public class EnemyMovement : MonoBehaviour
             {
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isAttacking", true);
+                PlayerStats playerStats = gameObject.GetComponent<PlayerStats>();
+                if (playerStats != null)
+                {
+                    playerStats.TakeDamage();
+                }
 
             }
             else
@@ -78,7 +108,15 @@ public class EnemyMovement : MonoBehaviour
         // return (hit.collider != null && hit.collider.CompareTag("Player"));
     }
 
-
+    void Dodamage()
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        Debug.Log("Ataque");
+        if (playerStats != null && distanceToPlayer <= 1.5)
+        {
+            playerStats.TakeDamage();
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
