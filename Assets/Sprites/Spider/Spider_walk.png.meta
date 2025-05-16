@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 4cd07227c614f0442a42874fd2ead81b
+guid: 4d0ff2e3ac80cee438ae7889a60d92f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 158766541290451354
-    second: DeathE_0
+      213: -6441447526313780237
+    second: Spider_walk_0
   - first:
-      213: -4619715525018845837
-    second: DeathE_1
+      213: 4134879095494892500
+    second: Spider_walk_1
   - first:
-      213: 4076315104586450012
-    second: DeathE_2
+      213: -5665497344592214263
+    second: Spider_walk_2
   - first:
-      213: 2805217886917355102
-    second: DeathE_3
+      213: 8148423185660170
+    second: Spider_walk_3
   - first:
-      213: 3432057068613865084
-    second: DeathE_4
+      213: 2581242915915959617
+    second: Spider_walk_4
   - first:
-      213: 4439995956963019558
-    second: DeathE_5
+      213: 7909496117302833808
+    second: Spider_walk_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,133 +141,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DeathE_0
+      name: Spider_walk_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 7
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb9fb26a916b96a0800000000000000
+      internalID: -6441447526313780237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spider_walk_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db592c31aa026930800000000000000
+      internalID: 4134879095494892500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spider_walk_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90789a3ae2c1061b0800000000000000
+      internalID: -5665497344592214263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spider_walk_3
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a09f57d92f2fc1000800000000000000
+      internalID: 8148423185660170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spider_walk_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d0a2a81ca62d320800000000000000
+      internalID: 2581242915915959617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spider_walk_5
+      rect:
+        serializedVersion: 2
+        x: 246
         y: 0
         width: 41
-        height: 34
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a91b5dff35d043200800000000000000
-      internalID: 158766541290451354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathE_1
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 0
-        width: 41
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37df4efc43973efb0800000000000000
-      internalID: -4619715525018845837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathE_2
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 0
-        width: 41
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c544f698dfaf19830800000000000000
-      internalID: 4076315104586450012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathE_3
-      rect:
-        serializedVersion: 2
-        x: 154
-        y: 0
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e56e7433ec22ee620800000000000000
-      internalID: 2805217886917355102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathE_4
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 0
-        width: 31
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7e099758bd11af20800000000000000
-      internalID: 3432057068613865084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeathE_5
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 0
-        width: 27
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62b83fa7cc80e9d30800000000000000
-      internalID: 4439995956963019558
+      spriteID: 092ba28ffcc24cd60800000000000000
+      internalID: 7909496117302833808
       vertices: []
       indices: 
       edges: []
@@ -276,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2aa211ed0fe9bd541bbe5b35e7a1e953
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -286,12 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DeathE_0: 158766541290451354
-      DeathE_1: -4619715525018845837
-      DeathE_2: 4076315104586450012
-      DeathE_3: 2805217886917355102
-      DeathE_4: 3432057068613865084
-      DeathE_5: 4439995956963019558
+      Spider_walk_0: -6441447526313780237
+      Spider_walk_1: 4134879095494892500
+      Spider_walk_2: -5665497344592214263
+      Spider_walk_3: 8148423185660170
+      Spider_walk_4: 2581242915915959617
+      Spider_walk_5: 7909496117302833808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

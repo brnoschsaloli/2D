@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
         float rayLength = 1.0f;
 
         // Use camada "Ground" e "Enemy" e "Default" no LayerMask
-        int wallMask = LayerMask.GetMask("Default", "Ground", "Enemy");
+        int wallMask = LayerMask.GetMask("Player", "Ground", "Enemy");
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.left * lookDir, rayLength, wallMask);
         Debug.DrawRay(origin, Vector2.right * lookDir * (-1) * rayLength, Color.blue);
         if (hit.collider != null)
@@ -95,16 +95,26 @@ public class EnemyMovement : MonoBehaviour
 
     private bool CanSeePlayer()
     {
-        Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
-        float dist = Vector2.Distance(transform.position, player.position);
 
-        // <--- Ajuste este valor para as layers do seu projeto!
-        int layerMask = LayerMask.GetMask("Default", "Player");
+        float xDiff = transform.position.x - player.position.x;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, dist, layerMask);
+        // --- CHECA COLISÃO NA FRENTE ---
+        float lookDir = Mathf.Sign(xDiff);
+        Vector2 origin = (Vector2)transform.position + Vector2.up * 0.1f; // um pouco acima do centro
+        float rayLength = 10.0f;
 
-        Debug.DrawRay(transform.position, dir * dist, Color.red);
-        return (true);
+        // Use camada "Player" no LayerMask
+        int wallMask = LayerMask.GetMask("Player");
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.left * lookDir, rayLength, wallMask);
+        Debug.DrawRay(origin, Vector2.right * lookDir * (-1) * rayLength, Color.blue);
+        if (hit.collider != null)
+        {
+            return (true);
+        }
+        else
+        {
+            return (false);
+        }
         // return (hit.collider != null && hit.collider.CompareTag("Player"));
     }
 

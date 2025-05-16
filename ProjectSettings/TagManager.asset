@@ -9,6 +9,7 @@ TagManager:
   - Water
   - DeathZone
   - Enemy
+  - larvaWall
   layers:
   - Default
   - TransparentFX
