@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Stop();
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.UpArrow))
+        else if (rb.linearVelocity.y > 0 && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)))
         {
             rb.gravityScale = lowJumpMultiplier;
         }
