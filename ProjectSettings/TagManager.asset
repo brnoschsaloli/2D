@@ -8,6 +8,7 @@ TagManager:
   - Spike
   - Water
   - DeathZone
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Inimigo
   - Bala
   - Coletavel
-  - 
+  - Urso
   - 
   - 
   - 
