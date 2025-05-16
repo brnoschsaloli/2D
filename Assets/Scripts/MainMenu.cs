@@ -9,4 +9,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("SelectPhase");
     }
+
+    public void ControlsTutorial()
+    {
+        SceneManager.LoadScene("ControlsTutorial");
+    }
 }
