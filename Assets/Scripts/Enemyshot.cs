@@ -28,8 +28,9 @@ public class Enemyshot : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        bullet.SetDirection(-1);
     }
 
 
