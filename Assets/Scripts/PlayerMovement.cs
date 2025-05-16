@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunning;
     private AudioSource audioSource;
     private PlayerLifeStats lifeStats;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -40,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
+
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (moveInput > 0)
@@ -62,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Stop();
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
@@ -71,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.UpArrow))
         {
             rb.gravityScale = lowJumpMultiplier;
         }
@@ -84,6 +90,20 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = fastFallMultiplier;
         }
+    }
+
+    void Attack()
+    {
+        if (isAttacking) return;
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+        rb.linearVelocity = Vector2.zero;
+    }
+
+    public void EndAttack()
+    {
+        isAttacking = false;
+        animator.SetBool("isAttacking", false);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
