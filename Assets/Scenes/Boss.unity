@@ -226,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 313701853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.06, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2274,7 +2274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6172006129065983745, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -1.48
       objectReference: {fileID: 0}
     - target: {fileID: 6172006129065983745, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2458,6 +2458,7 @@ MonoBehaviour:
   lifeHudManager: {fileID: 772851589}
   maxHearts: 3
   currentHearts: 3
+  animator: {fileID: 0}
 --- !u!1 &1841331196
 GameObject:
   m_ObjectHideFlags: 0
