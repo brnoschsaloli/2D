@@ -13,27 +13,46 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool isRunning;
     private AudioSource audioSource;
+    private PlayerLifeStats lifeStats;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        lifeStats = GetComponent<PlayerLifeStats>();
     }
 
     void Update()
     {
+        if (lifeStats != null && lifeStats.currentHearts <= 0)
+        {
+            animator.SetBool("isDead", true);
+            Debug.Log("Player isDead!");
+            enabled = false;
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.bodyType = RigidbodyType2D.Static;
+            }
+            var col = GetComponent<Collider2D>();
+            if (col != null) col.enabled = false;
+            return;
+        }
+
         float moveInput = Input.GetAxisRaw("Horizontal");
 
-        // Movimento horizontal
+        if (moveInput > 0)
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        else if (moveInput < 0)
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        // Animação de corrida
         bool wasRunning = isRunning;
         isRunning = Mathf.Abs(moveInput) > 0.1f;
         animator.SetBool("isRunning", isRunning);
 
-        // Som de corrida
         if (isRunning && !wasRunning && isGrounded)
         {
             audioSource.Play();
@@ -43,30 +62,24 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Stop();
         }
 
-        // Pulo
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
-        // Ajustes de gravidade para subida e queda
         if (rb.linearVelocity.y < 0)
         {
-            // Caindo
             rb.gravityScale = fallMultiplier;
         }
         else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
         {
-            // Subindo mas botão de pulo solto
             rb.gravityScale = lowJumpMultiplier;
         }
         else
         {
-            // Gravidade normal
             rb.gravityScale = 1f;
         }
 
-        // Queda rápida com tecla S ou seta para baixo
         if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isGrounded)
         {
             rb.gravityScale = fastFallMultiplier;

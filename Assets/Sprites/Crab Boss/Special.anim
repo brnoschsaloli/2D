@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hurt
+  m_Name: Special
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,23 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2048800907179887802, guid: 196806380f2065043935260c0fa4f163, type: 3}
+      value: {fileID: -9068871714124230211, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - time: 0.083333336
+      value: {fileID: -5513262646514174557, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - time: 0.16666667
+      value: {fileID: -6198531488440642195, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - time: 0.25
+      value: {fileID: 6701770154028129973, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
     - time: 0.33333334
-      value: {fileID: 490842205202310979, guid: 196806380f2065043935260c0fa4f163, type: 3}
+      value: {fileID: 4992887672371064048, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - time: 0.41666666
+      value: {fileID: -3184613127404677753, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 60
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,8 +54,12 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2048800907179887802, guid: 196806380f2065043935260c0fa4f163, type: 3}
-    - {fileID: 490842205202310979, guid: 196806380f2065043935260c0fa4f163, type: 3}
+    - {fileID: -9068871714124230211, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - {fileID: -5513262646514174557, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - {fileID: -6198531488440642195, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - {fileID: 6701770154028129973, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - {fileID: 4992887672371064048, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
+    - {fileID: -3184613127404677753, guid: fe335248cdf2fb84fb32254011afdb92, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -73,8 +85,22 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.16666667
+    functionName: EnableHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: DisableHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
-    functionName: EndHurt
+    functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

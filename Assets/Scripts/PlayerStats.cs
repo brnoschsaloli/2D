@@ -6,14 +6,24 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        hudManager.UpdateHearts(GameSession.Instance.currentHearts);
-        hudManager.UpdateCoins(GameSession.Instance.coins);
+        if (hudManager != null)
+        {
+            hudManager.UpdateHearts(GameSession.Instance.currentHearts);
+            // hudManager.UpdateCoins(GameSession.Instance.coins);
+        }
+        else
+        {
+            Debug.LogWarning("HUDManager not assigned to PlayerStats! Please assign it in the Inspector.");
+        }
     }
 
     public void TakeDamage()
     {
-        GameSession.Instance.TakeDamage();
-        hudManager.UpdateHearts(GameSession.Instance.currentHearts);
+        GameSession.Instance.currentHearts -= 1;
+        if (hudManager != null)
+        {
+            hudManager.UpdateHearts(GameSession.Instance.currentHearts);
+        }
 
         if (GameSession.Instance.currentHearts <= 0)
         {
@@ -31,23 +41,31 @@ public class PlayerStats : MonoBehaviour
     public void AddCoin()
     {
         GameSession.Instance.AddCoin();
-        hudManager.UpdateCoins(GameSession.Instance.coins);
+        if (hudManager != null)
+        {
+            hudManager.UpdateCoins(GameSession.Instance.coins);
+        }
     }
 
     public void LoseCoinsOnDeath()
     {
         GameSession.Instance.coins = Mathf.Max(0, GameSession.Instance.coins - 2);
-        hudManager.UpdateCoins(GameSession.Instance.coins);
+        if (hudManager != null)
+        {
+            hudManager.UpdateCoins(GameSession.Instance.coins);
+        }
         Debug.Log("O jogador perdeu 2 moedas!");
     }
 
     public void ResetLife()
     {
         GameSession.Instance.currentHearts = GameSession.Instance.maxHearts;
-        hudManager.UpdateHearts(GameSession.Instance.currentHearts);
+        if (hudManager != null)
+        {
+            hudManager.UpdateHearts(GameSession.Instance.currentHearts);
+        }
         Debug.Log("Vida restaurada!");
     }
-
 
     // Debug
 }
