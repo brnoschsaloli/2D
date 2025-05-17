@@ -41,6 +41,16 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject, 0);
         }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            Debug.Log("ta batendo no boss");
+            BossHealth bossHealth = collision.gameObject.GetComponent<BossHealth>();
+            if (bossHealth != null)
+            {
+                bossHealth.TakeDamage();
+            }
+            Destroy(gameObject, 0);
+        }
         else
         {
             Debug.Log("ta batendo em algo" + collision.gameObject);
@@ -48,6 +58,18 @@ public class Bullet : MonoBehaviour
         }
     }
 
-
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if we hit a boss or a boss part (like a claw hitbox)
+        BossHealth bossHealth = other.GetComponentInParent<BossHealth>();
+        if (bossHealth != null)
+        {
+            Debug.Log("Bullet hit boss via trigger (claw or body)");
+            bossHealth.TakeDamage();
+            Destroy(gameObject, 0);
+            return;
+        }
+        // Optionally, handle other trigger logic here
+    }
 }
+

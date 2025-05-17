@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Play();
         }
         else if (!isRunning && wasRunning)
-        {
+        {   
             audioSource.Stop();
         }
 
