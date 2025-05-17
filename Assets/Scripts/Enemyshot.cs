@@ -17,11 +17,11 @@ public class Enemyshot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.time >= nextFireTime)
-        {
-            Shoot();
-            nextFireTime = Time.time + fireRate;
-        }
+        // if (Time.time >= nextFireTime)
+        // {
+        //     Shoot();
+        //     nextFireTime = Time.time + fireRate;
+        // }
     }
 
 
