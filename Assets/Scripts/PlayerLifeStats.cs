@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLifeStats : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class PlayerLifeStats : MonoBehaviour
             else
             {
                 animator.SetBool("isDead", true);
+                GameObject.FindWithTag("TenseMusic")?.GetComponent<AudioSource>()?.Stop();
+                PlayerPrefs.SetString("GameResult", "Você não conseguiu cruzar a ilha dos desesperados. Tente novamente!");
+                Time.timeScale = 0f;
+                SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
                 Debug.Log("Player isDead!");
             }
         }
@@ -72,4 +77,17 @@ public class PlayerLifeStats : MonoBehaviour
         if (animator != null)
             animator.SetBool("isHurt", false);
     }
+
+    // Debug para quando o jogador ganha
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            GameObject.FindWithTag("TenseMusic")?.GetComponent<AudioSource>()?.Stop();
+            PlayerPrefs.SetString("GameResult", "Você conseguiu cruzar a ilha dos desesperados! Parabéns!");
+            Time.timeScale = 0f;
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+        }
+    }
+
 } 
