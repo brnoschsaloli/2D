@@ -12,7 +12,6 @@ public class Enemyshot : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] private float fireRate;
 
-    private bool isGrounded;
     private float nextFireTime = 0f;
 
 
@@ -33,20 +32,4 @@ public class Enemyshot : MonoBehaviour
         bullet.SetDirection(-1);
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
 }

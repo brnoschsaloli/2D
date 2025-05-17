@@ -10,6 +10,7 @@ TagManager:
   - DeathZone
   - Enemy
   - larvaWall
+  - spiderWall
   layers:
   - Default
   - TransparentFX
