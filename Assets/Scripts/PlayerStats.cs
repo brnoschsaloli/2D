@@ -3,6 +3,10 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public HUDManager hudManager;
+    [SerializeField] private AudioClip coincollect;
+    public AudioSource sfxAudioSource;
+
+    [SerializeField] private AudioClip takedamage;
 
     void Start()
     {
@@ -19,6 +23,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage()
     {
+        sfxAudioSource.PlayOneShot(takedamage);
         GameSession.Instance.currentHearts -= 1;
         if (hudManager != null)
         {
@@ -40,6 +45,7 @@ public class PlayerStats : MonoBehaviour
 
     public void AddCoin()
     {
+        sfxAudioSource.PlayOneShot(coincollect);
         GameSession.Instance.AddCoin();
         if (hudManager != null)
         {

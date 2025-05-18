@@ -4211,6 +4211,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4953819113044714744, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953819113044714744, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -4320,6 +4324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudManager: {fileID: 1598271389}
+  coincollect: {fileID: 0}
+  shoot: {fileID: 0}
+  sfxAudioSource: {fileID: 0}
 --- !u!82 &728740186
 AudioSource:
   m_ObjectHideFlags: 0
