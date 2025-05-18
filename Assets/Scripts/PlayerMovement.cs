@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking = false;
 
     public int lookDirection = 1;
+    [SerializeField] private AudioClip shoot;
+    public AudioSource sfxAudioSource;
 
     void Start()
     {
@@ -71,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Play();
         }
         else if (!isRunning && wasRunning)
-        {   
+        {
             audioSource.Stop();
         }
 
@@ -135,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Shoot()
     {
+        sfxAudioSource.PlayOneShot(shoot);
+        GameSession.Instance.AddCoin();
         Debug.Log("Atirou   : " + lookDirection);
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
         Bullet bullet = bulletObj.GetComponent<Bullet>();
