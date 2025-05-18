@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
     public int maxHealth = 10;
     public int currentHealth;
+
+    public Slider healthBar;
 
     private Animator animator;
 
@@ -12,12 +15,20 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+            healthBar.value = currentHealth;
+        }
     }
 
     public void TakeDamage(int amount = 1)
     {
         currentHealth -= amount;
         Debug.Log("Boss took damage! Current health: " + currentHealth);
+
+        if (healthBar != null)
+            healthBar.value = currentHealth;
 
         // Optionally play a hurt animation
         if (animator != null)
