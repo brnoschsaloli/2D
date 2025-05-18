@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8374894356626486677}
   - component: {fileID: 7623638318404693311}
   - component: {fileID: 1171028142630262244}
+  - component: {fileID: 6091193997126022450}
   m_Layer: 0
   m_Name: Larva_0
   m_TagString: Enemy
@@ -199,3 +200,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6091193997126022450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381212572289039121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f123f9e88124ad49f0073d962f3775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidas: 3
