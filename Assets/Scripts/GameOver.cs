@@ -1,23 +1,21 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
     public TextMeshProUGUI titleText;
+    public GameObject playAgainButton;  
+
+    private const string failureMessage = "Você não conseguiu cruzar a ilha dos desesperados. Tente novamente!";
 
     void Start()
     {
-        string result = PlayerPrefs.GetString("GameResult", "Você não conseguiu cruzar a ilha dos desesperados. Tente novamente!"); // valor padrão
+        string result = PlayerPrefs.GetString("GameResult", failureMessage);
         titleText.text = result;
 
-        if (result == "Você não conseguiu cruzar a ilha dos desesperados. Tente novamente!")
-        {
-            titleText.color = Color.red;
-        }
-        else
-        {
-            titleText.color = Color.green;
-        }
+        bool isFailure = result == failureMessage;
+        titleText.color = isFailure ? Color.red : Color.green;
+
+        playAgainButton.SetActive(isFailure);
     }
 }

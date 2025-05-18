@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class BossHealth : MonoBehaviour
@@ -50,6 +51,10 @@ public class BossHealth : MonoBehaviour
             // animator.SetBool("IsWalking", false);
 
             StartCoroutine(DestroyAfterDeath());
+            GameObject.FindWithTag("TenseMusic")?.GetComponent<AudioSource>()?.Stop();
+            PlayerPrefs.SetString("GameResult", "Você conseguiu cruzar a ilha dos desesperados! Parabéns!");
+            Time.timeScale = 0f;
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
     }
 
