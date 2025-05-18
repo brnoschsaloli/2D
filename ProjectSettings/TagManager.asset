@@ -12,6 +12,7 @@ TagManager:
   - larvaWall
   - spiderWall
   - Boss
+  - TenseMusic
   layers:
   - Default
   - TransparentFX
