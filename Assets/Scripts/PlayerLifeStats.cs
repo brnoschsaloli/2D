@@ -79,17 +79,4 @@ public class PlayerLifeStats : MonoBehaviour
         if (animator != null)
             animator.SetBool("isHurt", false);
     }
-
-    // Debug para quando o jogador ganha
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            GameObject.FindWithTag("TenseMusic")?.GetComponent<AudioSource>()?.Stop();
-            PlayerPrefs.SetString("GameResult", "Você conseguiu cruzar a ilha dos desesperados! Parabéns!");
-            Time.timeScale = 0f;
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
-        }
-    }
-
 } 
