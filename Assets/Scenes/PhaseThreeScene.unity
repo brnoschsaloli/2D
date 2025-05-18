@@ -11266,6 +11266,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1209610029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8855694426935890555, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
+  m_PrefabInstance: {fileID: 1209610024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209610025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975ca6c50570c48be917e22cc487f8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1242144351
 GameObject:
   m_ObjectHideFlags: 0
@@ -14208,6 +14219,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1908230095741219974, guid: 95b5d350826a5a44bbf690a7011a1e88, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 1209610029}
     - target: {fileID: 4107215980925301543, guid: 95b5d350826a5a44bbf690a7011a1e88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.44

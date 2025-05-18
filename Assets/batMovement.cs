@@ -13,18 +13,25 @@ public class batMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true; // evita rota��es indesejadas
+        rb.freezeRotation = true; // evita rotações indesejadas
     }
 
     void FixedUpdate()
     {
-        // Mant�m velocidade constante no eixo Y
+        // Mantém velocidade constante no eixo Y
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, moveDirection * speed);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Se colidir com algo taggeado como "Ground", inverte o sentido
+        // 1) Dano imediato ao player, se houver PlayerStats no objeto colidido
+        PlayerStats ps = collision.gameObject.GetComponent<PlayerStats>();
+        if (ps != null)
+        {
+            ps.TakeDamage();
+        }
+
+        // 2) Inverte o sentido de voo ao bater no chão (“Ground”)
         if (collision.gameObject.CompareTag("Ground"))
         {
             moveDirection *= -1;
