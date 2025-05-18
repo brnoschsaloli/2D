@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 313701858}
   - component: {fileID: 313701859}
   - component: {fileID: 313701860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrabBoss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 335792516}
   - component: {fileID: 335792518}
   - component: {fileID: 335792517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitBox
   m_TagString: Boss
   m_Icon: {fileID: 0}

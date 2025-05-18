@@ -41,13 +41,15 @@ public class PlayerLifeStats : MonoBehaviour
             }
             else
             {
-                animator.SetBool("isDead", true);
+                animator.SetTrigger("isDead");
+                Debug.Log("Player isDead!");
                 GameObject.FindWithTag("TenseMusic")?.GetComponent<AudioSource>()?.Stop();
                 PlayerPrefs.SetString("GameResult", "Você não conseguiu cruzar a ilha dos desesperados. Tente novamente!");
-                Time.timeScale = 0f;
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
-                Debug.Log("Player isDead!");
+                
+                
             }
+            
         }
 
         // if (currentHearts <= 0)

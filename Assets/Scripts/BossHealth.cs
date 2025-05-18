@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class BossHealth : MonoBehaviour
 {
@@ -20,24 +21,41 @@ public class BossHealth : MonoBehaviour
 
         // Optionally play a hurt animation
         if (animator != null)
-            animator.SetTrigger("Hurt");
+            animator.SetBool("isHurt", true);
 
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
             Die();
         }
     }
 
+    public void EndHurt()
+    {
+        animator.SetBool("isHurt", false);
+    }
+
     void Die()
     {
-        Debug.Log("Boss died!");
-        // Optionally play death animation
         if (animator != null)
-            animator.SetTrigger("Death");
-        // Disable boss logic, collider, etc.
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
-        // Optionally destroy the boss after a delay
-        Destroy(gameObject, 2f);
+        {
+            animator.SetTrigger("isDead");
+            // Collider2D col = GetComponent<Collider2D>();
+            // if (col != null) col.enabled = false;
+
+            // // Disable other scripts (replace BossAI with your actual script names)
+            // // var ai = GetComponent<Crab Boss>();
+            // // if (ai != null) ai.enabled = false;
+
+            // animator.SetBool("isHurt", false);
+            // animator.SetBool("IsWalking", false);
+
+            StartCoroutine(DestroyAfterDeath());
+        }
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        yield return new WaitForSecondsRealtime(0.5f); // Replace 1.5f with your death animation length
+        Destroy(gameObject);
     }
 } 
