@@ -133,9 +133,10 @@ GameObject:
   - component: {fileID: 313701857}
   - component: {fileID: 313701858}
   - component: {fileID: 313701859}
-  m_Layer: 0
+  - component: {fileID: 313701860}
+  m_Layer: 8
   m_Name: CrabBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,6 +329,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.9375, y: 2.25}
   m_EdgeRadius: 0
+--- !u!114 &313701860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313701853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905aa7b38bfeaab4b8a3e0e60ad7edd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 3
 --- !u!1 &335443739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,9 +1076,9 @@ GameObject:
   - component: {fileID: 335792516}
   - component: {fileID: 335792518}
   - component: {fileID: 335792517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitBox
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,7 +1167,7 @@ GameObject:
   - component: {fileID: 585329200}
   m_Layer: 0
   m_Name: CrabBossRoot
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
