@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour
         {
             hudManager.UpdateCoins(GameSession.Instance.coins);
         }
+        Debug.Log("MOEDA");
     }
 
     public void LoseCoinsOnDeath()

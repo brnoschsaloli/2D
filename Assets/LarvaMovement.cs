@@ -1,48 +1,77 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class LarvaMovement : MonoBehaviour
 {
-    [Header("Configuração de Movimento")]
+    [Header("Configuraï¿½ï¿½o de Movimento")]
     [Tooltip("Velocidade horizontal em unidades/segundo")]
     public float speed = 2f;
 
+    [Header("Configuraï¿½ï¿½o de Dano")]
+    [Tooltip("Intervalo, em segundos, entre danos quando o player estï¿½ em contato")]
+    public float damageInterval = 1.5f;
+
     private Rigidbody2D rb;
     private int moveDirection = 1; // +1 = para a direita, -1 = para a esquerda
+    private Coroutine damageCoroutine;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // Garantir que o Rigidbody não gire com colisões
         rb.freezeRotation = true;
     }
 
     void FixedUpdate()
     {
-        // Aplica velocidade horizontal constante
         rb.linearVelocity = new Vector2(moveDirection * speed, rb.linearVelocity.y);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Só reagir a colisões com objetos marcados como "Ground"
+        // Se colidir com o player, aplica dano imediato e inicia a coroutine
+        PlayerStats ps = collision.gameObject.GetComponent<PlayerStats>();
+        if (ps != null)
+        {
+            ps.TakeDamage();
+            if (damageCoroutine == null)
+                damageCoroutine = StartCoroutine(DamageOverTime(ps));
+        }
+
+        // Lï¿½gica de inversï¿½o de direï¿½ï¿½o ao bater na parede da larva
         if (!collision.gameObject.CompareTag("larvaWall"))
             return;
 
-        // Verificar se a colisão foi lateral (normal aponta para x)
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if (Mathf.Abs(contact.normal.x) > 0.5f)
             {
-                // Inverte direção
                 moveDirection *= -1;
-
-                // Espelha o sprite virando a escala em X
                 Vector3 s = transform.localScale;
                 s.x = Mathf.Sign(moveDirection) * Mathf.Abs(s.x);
                 transform.localScale = s;
                 break;
             }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        // Para de causar dano quando o player se afasta
+        PlayerStats ps = collision.gameObject.GetComponent<PlayerStats>();
+        if (ps != null && damageCoroutine != null)
+        {
+            StopCoroutine(damageCoroutine);
+            damageCoroutine = null;
+        }
+    }
+
+    private IEnumerator DamageOverTime(PlayerStats ps)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(damageInterval);
+            ps.TakeDamage();
         }
     }
 }
