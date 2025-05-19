@@ -45,7 +45,7 @@ public class PlayerLifeStats : MonoBehaviour
                 Debug.Log("Player isDead!");
                 GameObject.FindWithTag("TenseMusic")?.GetComponent<AudioSource>()?.Stop();
                 PlayerPrefs.SetString("GameResult", "Você não conseguiu cruzar a ilha dos desesperados. Tente novamente!");
-                SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+                SceneManager.LoadScene("GameOverLose", LoadSceneMode.Additive);
                 
                 
             }

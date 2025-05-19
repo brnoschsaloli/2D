@@ -12,6 +12,6 @@ public class GameOverButtons : MonoBehaviour
     public void PlayAgain()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Boss");
+        SceneManager.LoadScene("Boss2");
     }
 }
