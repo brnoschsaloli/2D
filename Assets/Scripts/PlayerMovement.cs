@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
@@ -49,7 +49,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Attack();
         }
-
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene("Menu");
+        }
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (moveInput > 0)

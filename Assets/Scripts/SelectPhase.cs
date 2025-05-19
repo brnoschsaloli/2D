@@ -5,7 +5,7 @@ public class SelectPhase : MonoBehaviour
 {
     public void LoadPhase1()
     {
-        SceneManager.LoadScene("PhaseOneScene");
+        SceneManager.LoadScene("Introdução");
     }
 
     public void LoadPhase2()
