@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance { get; private set; }
-
+    public static string previousScene;
     public int coins = 0;
     public int maxHearts = 3;
     public int currentHearts;

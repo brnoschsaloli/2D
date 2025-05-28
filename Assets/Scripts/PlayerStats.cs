@@ -1,11 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
     public HUDManager hudManager;
     [SerializeField] private AudioClip coincollect;
     public AudioSource sfxAudioSource;
-
     [SerializeField] private AudioClip takedamage;
 
     void Start()
@@ -34,6 +34,10 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Player morreu!");
             LoseCoinsOnDeath();
+            GameSession.previousScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene("preAD");
+
+
             // Voltar para o ponto de respawn
             PlayerRespawn respawn = GetComponent<PlayerRespawn>();
             if (respawn != null)

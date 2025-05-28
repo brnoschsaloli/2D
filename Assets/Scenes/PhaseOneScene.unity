@@ -13261,6 +13261,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 199725831}
     - target: {fileID: 8855694426935890555, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
+      propertyPath: nextSceneName
+      value: preAD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855694426935890555, guid: e984c917d8d2f36498fb398c1de36c3a, type: 3}
       propertyPath: sfxAudioSource
       value: 
       objectReference: {fileID: 255891553}
