@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FallResetZone : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class FallResetZone : MonoBehaviour
             {
                 playerStats.LoseCoinsOnDeath();
             }
+
+
+            GameSession.previousScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene("preAD");
 
             PlayerRespawn respawn = other.GetComponent<PlayerRespawn>();
             if (respawn != null)
