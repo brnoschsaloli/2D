@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float jumpForce = 5f;
+    public float joystickJumpForce = 5f;
     public float fallMultiplier = 2f;
     public float lowJumpMultiplier = 2f;
     public float fastFallMultiplier = 3f;
+    public float joystickLowJumpMultiplier = 1.5f;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -20,76 +23,110 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip shoot;
     public AudioSource sfxAudioSource;
 
+    [Header("Mobile Input")]
+    public Joystick joystick;
+
+    private bool joystickJumpPressed = false;
+    private bool joystickJumpConsumed = false;
+    private bool wasJoystickUp = false;
+
+    [Header("UI Buttons")]
+    public Button shootButton; 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         lifeStats = GetComponent<PlayerLifeStats>();
+        if (shootButton != null)
+            shootButton.onClick.AddListener(Attack);
     }
+
 
     void Update()
     {
+        // ── Death check ──
         if (lifeStats != null && lifeStats.currentHearts <= 0)
         {
             animator.SetBool("isDead", true);
             Debug.Log("Player isDead!");
             enabled = false;
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-                rb.bodyType = RigidbodyType2D.Static;
-            }
-            var col = GetComponent<Collider2D>();
-            if (col != null) col.enabled = false;
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
+            Collider2D col = GetComponent<Collider2D>();
+            if (col) col.enabled = false;
             return;
         }
 
+        // ── Keyboard actions ──
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             Attack();
-        }
         if (Input.GetKeyDown(KeyCode.Q))
-        {
             SceneManager.LoadScene("Menu");
-        }
-        float moveInput = Input.GetAxisRaw("Horizontal");
 
+        // ── Read inputs ──
+        float joystickHorizontal = joystick != null ? joystick.Horizontal : 0f;
+        float joystickVertical = joystick != null ? joystick.Vertical : 0f;
+        float moveInput = Input.GetAxisRaw("Horizontal") + joystickHorizontal;
+
+        // ── Horizontal movement & facing ──
         if (moveInput > 0)
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(
+                Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
             lookDirection = 1;
         }
         else if (moveInput < 0)
         {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(
+                -Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
             lookDirection = -1;
         }
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
+        // ── Running animation & sound ──
         bool wasRunning = isRunning;
         isRunning = Mathf.Abs(moveInput) > 0.1f;
         animator.SetBool("isRunning", isRunning);
 
-        if (isRunning && !wasRunning && isGrounded)
-        {
-            audioSource.Play();
-        }
-        else if (!isRunning && wasRunning)
-        {
-            audioSource.Stop();
-        }
+        if (isRunning && !wasRunning && isGrounded)      audioSource.Play();
+        else if (!isRunning && wasRunning)               audioSource.Stop();
 
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
+        // ── Jump logic ──
+        bool keyboardJump = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
+        bool joystickJump = joystick != null && joystick.Vertical > 0.5f && !joystickJumpConsumed;
+
+        if ((keyboardJump || joystickJump) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            if (joystickJump)
+                joystickJumpConsumed = true;
         }
 
-        if (rb.linearVelocity.y < 0)
+        // Reset joystick jump when stick is released
+        if (joystick != null && joystick.Vertical <= 0.3f)
+        {
+            joystickJumpConsumed = false;
+        }
+
+        // ── Better‐jump gravity ──
+        bool jumpHeld = Input.GetKey(KeyCode.UpArrow)
+                    || Input.GetKey(KeyCode.W)
+                    || (joystick != null && joystick.Vertical > 0.5f);
+
+        if (rb.linearVelocity.y < 0f)
         {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.linearVelocity.y > 0 && !(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)))
+        else if (rb.linearVelocity.y > 0f && !jumpHeld)
         {
             rb.gravityScale = lowJumpMultiplier;
         }
@@ -98,11 +135,16 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = 1f;
         }
 
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !isGrounded)
+        // ── Fast‐fall ──
+        bool fastFallInput = (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                        || (joystick != null && joystickVertical < -0.5f);
+
+        if (fastFallInput && !isGrounded)
         {
             rb.gravityScale = fastFallMultiplier;
         }
     }
+
 
     void Attack()
     {
@@ -123,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            joystickJumpConsumed = false;
         }
     }
 
