@@ -11,21 +11,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectPhase.unity
     guid: 11e345bb966891f6d8e6befb50ce3e28
-  - enabled: 0
+  - enabled: 1
+    path: "Assets/Scenes/Introdu\xE7\xE3o.unity"
+    guid: d9039edff36d044ef8a6d0b7e3273d04
+  - enabled: 1
     path: Assets/Scenes/PhaseOneScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PhaseTwoScene.unity
     guid: e903a3e5154b2e9ac9b501d9c1707160
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PhaseThreeScene.unity
     guid: 9bdf9b6b2b1e1d6dfb0d98ae3a709780
-  - enabled: 0
-    path: Assets/Scenes/Breno.unity
-    guid: 23a2ed59e018bb84e92b6f5b0efc5225
-  - enabled: 0
-    path: Assets/Scenes/PlayerMovement.unity
-    guid: e657ac13792979b4689b37b0054ee93b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: a2c30298c6699411ca6e68c95e5fd049
+  - enabled: 1
+    path: Assets/Scenes/ControlsTutorial.unity
+    guid: 77ae095d454a44672ba9624526988948
+  - enabled: 1
+    path: Assets/Scenes/Boss2.unity
+    guid: fee3b756bc3184e55a6929df0a39783b
+  - enabled: 1
+    path: Assets/Scenes/preAD.unity
+    guid: b4dd437b93f88bb4389ec266037142d0
+  - enabled: 1
+    path: Assets/Scenes/Ad.unity
+    guid: 6973ee68777b28b4180247ce9e91d1ea
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

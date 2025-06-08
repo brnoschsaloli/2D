@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 844269147}
   - component: {fileID: 844269146}
   - component: {fileID: 844269148}
-  - component: {fileID: 844269149}
+  - component: {fileID: 844269150}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -931,21 +931,14 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &844269149
-MonoBehaviour:
+--- !u!81 &844269150
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844269144}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b7ba5cf997c3940a14a7014eb2b3e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _androidGameId: 5864518
-  _iOSGameId: 5864519
-  _testMode: 1
 --- !u!1 &1818582752
 GameObject:
   m_ObjectHideFlags: 0
