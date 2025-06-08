@@ -3,21 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class preAD : MonoBehaviour
 {
-    private RewardedAdsButton rewardedAdsButton;
+    // Arraste o seu Image de anúncio aqui no Inspector
 
-    private void Awake()
+    // Método ligado ao botão “Ad”
+    public void Ad()
     {
-        rewardedAdsButton = FindAnyObjectByType<RewardedAdsButton>();
-        if (rewardedAdsButton != null)
-        {
-            rewardedAdsButton.LoadAd();
-        }
-        else
-        {
-            Debug.LogError("RewardedAdsButton instance not found in the scene.");
-        }
+        SceneManager.LoadScene("Ad");
     }
 
+
+    // Método ligado ao botão “MainMenu”
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
